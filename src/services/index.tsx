@@ -8,7 +8,8 @@ const services: IServices = {
     getJobs: async () => {
         try {
             let jobsRequest = await fetch('/data.json');
-            if(jobsRequest.ok) {
+
+            if (jobsRequest.ok) {
                 const jobsRes = await jobsRequest.json() as Array<IJob>;
                 return jobsRes;
             }

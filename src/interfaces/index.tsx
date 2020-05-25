@@ -10,5 +10,6 @@ export type IJob = {
     postedAt: string,
     contract: string,
     location: string,
-    languages: Array<string>
+    languages?: Array<string>
+    tools?: Array<string>
 }

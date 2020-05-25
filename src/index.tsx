@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ListingsPage from './components/ListingsPage/App';
+import ListingsPage from './components/ListingsPage/ListingsPage';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import services from '../../services';
-import './App.css';
+import './ListingsPage.css';
 import { IJob } from '../../interfaces';
+import Listing from '../Listing/Listing';
 
-const App: React.FC = () => {
+const ListingsPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [jobs, setJobs] = useState<Array<IJob>>([]);
 
   useEffect(() => {
     async function getJobs () {
       const jobs = await services.getJobs();
+
       setJobs(jobs);
       setLoading(false);
     };
@@ -18,24 +20,24 @@ const App: React.FC = () => {
       getJobs();
     }
 
-  },[loading])
-
-  
-  if (loading) {
-    return (
-      <div>
-        Loading...
-      </div>
-    );
-  }
+  }, [loading])
 
   return (
-    <div className="App">
-      {
-        jobs.map(job => <p>{job.id}</p>)
-      }
+    <div id="listing-page">
+      <div className="banner-image"/>
+      <div className="listings">
+        {
+            loading
+            ?
+            <div>
+              Loading...
+            </div>
+            :
+            jobs.map(job => <Listing key={job.id} job={job} />)
+        }
+      </div>
     </div>
   )
 }
 
-export default App;
+export default ListingsPage;
