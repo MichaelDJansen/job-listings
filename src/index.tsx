@@ -1,6 +1,6 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import ListingsPage from './components/ListingsPage/ListingsPage';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Spartan");
+@import './styles/common.scss';
 
 html, body, #root {
   height: 100%;
   margin: 0;
   font-weight: 500;
   font-size: 15px;
-  font-family: "Spartan", sans-serif;
+  font-family: $primaryFont;
 }
 
 body {

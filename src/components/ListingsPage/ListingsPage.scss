@@ -1,0 +1,24 @@
+@import '../../styles/common.scss';
+
+#listing-page {
+  display: grid;
+  grid-template-rows: 15% auto;
+  height: 100%;
+  width: 100%;
+
+  .banner-image {
+    background: url('/images/bg-header-desktop.svg') $primaryCyan;
+    background-size: contain;
+    background-repeat: repeat-x;
+  }
+  
+  #content-container {
+    padding: 0% 20%;
+    background-color: $backgroundCyan;
+
+    .listings {
+      padding-top: 3%;
+      position: relative;
+    }
+  }
+}

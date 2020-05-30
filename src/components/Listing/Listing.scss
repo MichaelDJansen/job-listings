@@ -1,0 +1,30 @@
+@import '../../styles/common.scss';
+
+.listing {
+    display: grid;
+    grid-template-columns: 80px 30% auto;
+    height: 120px;
+    padding: 3% 2%;
+}
+
+.listing-image-container > img {
+    height: 65px;
+}
+
+.listing-company-name {
+    color: $primaryCyan;
+    font-weight: 700;
+}
+
+.listing-position {
+    font-weight: 700;
+}
+
+.featured-border {
+    border-left: $primaryCyan solid 5px;
+}
+
+.listing-more-info {
+    font-weight: 700;
+    color: $darkGrayishCyan;
+}

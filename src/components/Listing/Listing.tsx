@@ -1,6 +1,6 @@
 import React from 'react';
 import { IJob } from '../../interfaces';
-import './Listing.css'
+import './Listing.scss';
 import Tag from '../Tag/Tag';
 
 type ListingProps = {
@@ -30,6 +30,8 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                     key={index}
                     bgColour={"hsl(180, 31%, 95%)"}
                     colour={"hsl(180, 29%, 50%)"}
+                    size="large"
+                    className="mr3 pa2"
                 >
                     {tag}
                 </Tag>
@@ -46,7 +48,7 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                 </div>
                 <div className="listing-info flex flex-column justify-between">
                     <div>
-                        <span className="listing-company-name mr2 f7">
+                        <span className="listing-company-name mr3 f7">
                             {job.company}     
                         </span>
                         {
@@ -55,6 +57,8 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                             <Tag 
                                 bgColour={"hsl(180, 29%, 50%)"}
                                 pill
+                                size="small"
+                                className="ttu"
                             >
                                 New!
                             </Tag>
@@ -65,6 +69,8 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                             <Tag
                                 bgColour={"hsl(180, 14%, 20%)"}
                                 pill
+                                size="small"
+                                className="ttu"
                             >
                                 Featured
                             </Tag>
@@ -74,7 +80,7 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                         {job.position}
                     </span>
                     <span className="listing-more-info f7">
-                        {`${job.postedAt} - ${job.contract} - ${job.location}`}
+                        {`${job.postedAt} · ${job.contract} · ${job.location}`}
                     </span>
                 </div>
                 <div className="listing-tags-container flex items-center justify-end flex-wrap">
