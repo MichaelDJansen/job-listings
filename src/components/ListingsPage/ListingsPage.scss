@@ -20,5 +20,22 @@
       padding-top: 3%;
       position: relative;
     }
+  
+    #filter-container {
+      position: relative;
+      top: -6px;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  #listing-page {
+    .banner-image {
+      background: url('/images/bg-header-mobile.svg') $primaryCyan;
+    }
+    
+    #content-container {
+      padding: 0% 6%;
+    }
   }
 }

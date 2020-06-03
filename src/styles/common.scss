@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Spartan");
 
+@font-face {
+    font-family: 'Spartan';
+    src: url('../fonts/Spartan-VariableFont_wght.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 // Colors
 $primaryCyan: hsl(180, 29%, 50%);
 $backgroundCyan: hsl(180, 52%, 96%);
@@ -9,3 +14,6 @@ $veryDarkGrayishCyan: hsl(180, 14%, 20%);
 
 // Font
 $primaryFont: "Spartan", sans-serif; 
+
+// Breakpoints
+$mobile: 425px;

@@ -43,9 +43,7 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
     if (job) {
         return (
             <div className={`listing mb3 bg-white shadow-5 ph4 pv3 br2 ${job.featured ? 'featured-border' : ''}`}>
-                <div className="listing-image-container flex items-center">
-                    <img src={job.logo} alt={job.company} />
-                </div>
+                <img className="listing-image" src={job.logo} alt={job.company} />
                 <div className="listing-info flex flex-column justify-between">
                     <div>
                         <span className="listing-company-name mr3 f7">
