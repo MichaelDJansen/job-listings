@@ -4,7 +4,7 @@ import './Listing.scss';
 import Tag from '../Tag/Tag';
 
 type ListingProps = {
-    job: IJob
+    job?: IJob
 }
 
 const Listing: React.FC<ListingProps> = ({ job }) => {
@@ -89,7 +89,8 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
             </div>
         );
     }
-    return null;
+    return (<div className={`listing mb3 bg-white shadow-5 ph4 pv3 br2`} />);
+    // return null;
 }
 
 export default Listing;

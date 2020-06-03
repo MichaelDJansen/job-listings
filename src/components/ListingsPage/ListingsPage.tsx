@@ -3,6 +3,7 @@ import services from '../../services';
 import './ListingsPage.scss';
 import { IJob } from '../../interfaces';
 import Listing from '../Listing/Listing';
+import LazyLoad from 'react-lazyload';
 
 const ListingsPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -29,15 +30,23 @@ const ListingsPage: React.FC = () => {
         {
             loading
             ?
-            <div>
-              Loading...
-            </div>
+            <div />
             :
             (
               <React.Fragment>
-                <div className="listings">
+                <div id="listings">
                   {
-                    jobs.map(job => <Listing key={job.id} job={job} />)
+                    jobs.map(job =>
+                      (
+                        <LazyLoad 
+                          once 
+                          placeholder={<Listing />}
+                          offset={100}
+                        >
+                          <Listing key={job.id} job={job} />
+                        </LazyLoad>
+                      ) 
+                    )
                   }
                 </div>
               </React.Fragment>
