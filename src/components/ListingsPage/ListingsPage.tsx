@@ -21,7 +21,7 @@ const ListingsPage: React.FC = () => {
 
       setJobs(jobs);
       setFilteredJobs(jobs);
-      setFilters(['Frontend', 'Senior', "JavaScript"])
+      setFilters([])
       setLoading(false);
     };
 
@@ -31,21 +31,28 @@ const ListingsPage: React.FC = () => {
 
   }, [loading])
 
-  const filterJobs = () => {
-    console.log('hey');
+  const filterJobs = (filters: Array<string>) => {
+    const _filteredJobs = jobs.filter((job) =>  difference(filters, job.filters).length === 0);
+
+    setFilteredJobs(_filteredJobs);
   };
 
   const onFilterAdd = (filter: string) => {
     if(!includes(filters, filter)) {
-      setFilters([...filters, filter]);  
+      const _filters = [...filters, filter];
+
+      setFilters(_filters); 
+      filterJobs(_filters);
     }
   };
 
   const onFilterRemove = (index: number) => {
     if (filters[index]) {
-      let _filters = filters;
+      let _filters = [...filters];
+
       _filters.splice(index, 1);
-      setFilters([..._filters]);
+      setFilters(_filters);
+      filterJobs(_filters);
     }
   }
 
@@ -84,14 +91,7 @@ const ListingsPage: React.FC = () => {
                 <div id="listings" className={filters && filters.length === 0 ? 'pt3' : ''}>
                   {
                     filteredJobs.map(job => (
-                        <LazyLoad
-                          once
-                          placeholder={<Listing />}
-                          offset={100}
-                          key={job.id}
-                        >
-                          <Listing key={job.id} job={job} onFilterClick={onFilterAdd} />
-                        </LazyLoad>
+                       <Listing key={job.id} job={job} onFilterClick={onFilterAdd} />
                       )
                     )
                   }

@@ -1,6 +1,6 @@
 {
   "name": "job-listings",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.9.0",
@@ -55,7 +55,6 @@
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
-    "react-lazyload": "^2.6.7",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.2",
