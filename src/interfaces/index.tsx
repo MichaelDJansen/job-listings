@@ -1,3 +1,5 @@
+export type getJobsResponse = Array<IJob>;
+
 export type IJob = {
     id: number,
     company: string,
@@ -12,4 +14,5 @@ export type IJob = {
     location: string,
     languages?: Array<string>
     tools?: Array<string>
+    filters: Array<string>
 }
