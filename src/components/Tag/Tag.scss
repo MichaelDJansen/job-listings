@@ -9,6 +9,13 @@
         height: 12px;
     }
 
+    .clickable {
+        &:hover {
+            color: white !important;
+            background-color: $primaryCyan !important;
+        }
+    }
+
     .remove-container {
         background-color: $primaryCyan;
         border-radius: 0 .25rem .25rem 0;

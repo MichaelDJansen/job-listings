@@ -5,9 +5,16 @@ import Tag from '../Tag/Tag';
 
 type ListingProps = {
     job?: IJob
+    onFilterClick?: (filter: string) => void;
 }
 
-const Listing: React.FC<ListingProps> = ({ job }) => {
+const Listing: React.FC<ListingProps> = ({ job, onFilterClick }) => {
+    const onTagClick = (index: number) => {
+        if(job && onFilterClick) {
+            onFilterClick(job.filters[index])            
+        }
+    }
+
     if (job) {
         return (
             <div className={`listing mb3 bg-white shadow-5 ph4 pv3 br2 ${job.featured ? 'featured-border' : ''}`}>
@@ -55,8 +62,11 @@ const Listing: React.FC<ListingProps> = ({ job }) => {
                                 bgColour={"hsl(180, 31%, 95%)"}
                                 colour={"hsl(180, 29%, 50%)"}
                                 size="large"
-                                className="mr3 pa2 br2"
+                                className="mr3 br2"
                                 text={tag}
+                                textClasses={"pa2 br2"}
+                                onClick={onTagClick}
+                                index={index}
                             />
                         ))
                     }

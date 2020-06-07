@@ -11,9 +11,10 @@ type TagProps = {
     index?: number;
     text: string;
     onRemove?: (index: number) => void;
+    onClick?: (index: number) => void;
 };
 
-const Tag: React.FC<TagProps> = ({ colour, bgColour, pill, size, text, className, textClasses, onRemove, index }) => {
+const Tag: React.FC<TagProps> = ({ colour, bgColour, pill, size, text, className, textClasses, onRemove, onClick, index }) => {
     
     const handleTagRemove = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
@@ -22,16 +23,25 @@ const Tag: React.FC<TagProps> = ({ colour, bgColour, pill, size, text, className
         }
     };
 
+    const handleTagClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+        if (onClick && index !== undefined && index >= 0) {
+            onClick(index);
+        }
+    };
+    
     return (
         <div
-            className={`tag-container ${pill ? 'br-pill' : ''} ${className ? className : ''}`}
+            className={`tag-container ${onClick ? 'tag-clickable' : ''} ${pill ? 'br-pill' : ''} ${className ? className : ''}`}
             style={{
                 color: colour ? colour : '#FFF',
                 backgroundColor: bgColour ? bgColour : '#000',
                 fontSize: size && size === "small" ? '8px' : '12px'
             }}
         >
-            <span className={textClasses ? textClasses : ''}>
+            <span 
+                className={`${onClick ? 'clickable pointer': ''} ${textClasses ? textClasses : ''}`}
+                onClick={onClick ? handleTagClick : undefined}
+            >
                 {text}
             </span>
             {

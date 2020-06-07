@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LazyLoad from 'react-lazyload';
 import difference from 'lodash.difference';
+import includes from 'lodash.includes';
 
 import services from '../../services';
 import './ListingsPage.scss';
@@ -32,6 +33,12 @@ const ListingsPage: React.FC = () => {
 
   const filterJobs = () => {
     console.log('hey');
+  };
+
+  const onFilterAdd = (filter: string) => {
+    if(!includes(filters, filter)) {
+      setFilters([...filters, filter]);  
+    }
   };
 
   const onFilterRemove = (index: number) => {
@@ -83,7 +90,7 @@ const ListingsPage: React.FC = () => {
                           offset={100}
                           key={job.id}
                         >
-                          <Listing key={job.id} job={job} />
+                          <Listing key={job.id} job={job} onFilterClick={onFilterAdd} />
                         </LazyLoad>
                       )
                     )
